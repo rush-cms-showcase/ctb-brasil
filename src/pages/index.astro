@@ -1,17 +1,18 @@
 ---
+import BaseLayout from '../layouts/base-layout.astro'
+import Hero from '../components/hero.astro'
+import ImpactStats from '../components/impact-stats.astro'
+import ServicesBento from '../components/services-bento.astro'
+import BusinessCards from '../components/business-cards.astro'
 
+const metaDescription = "CTB Brasil - Construtora e Terraplenagem. Construindo um futuro sustentável com infraestrutura pesada no Vale do Paraíba desde 1997."
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="CTB Brasil | Alta Performance em Infraestrutura" description={metaDescription}>
+  <main class="w-full flex flex-col min-h-screen">
+    <Hero />
+    <ImpactStats />
+    <ServicesBento />
+    <BusinessCards />
+  </main>
+</BaseLayout>
