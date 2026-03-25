@@ -15,5 +15,9 @@
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.0.8",
     "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "@iconify-json/ph": "^1.2.2",
+    "unplugin-icons": "^23.0.1"
   }
 }
