@@ -5,15 +5,12 @@ import Icons from 'unplugin-icons/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-    plugins: [
-      tailwindcss(),
-      Icons({
-        compiler: 'astro',
-      }),
-    ],
-    optimizeDeps: {
-      include: ['astro/runtime/client/dev-toolbar/entrypoint.js'],
-    },
-  },
+	vite: {
+		plugins: [
+			tailwindcss(),
+			Icons({
+				compiler: 'astro',
+			}),
+		],
+	},
 });
