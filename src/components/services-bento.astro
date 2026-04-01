@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import IconArrowRight from '~icons/ph/arrow-right-bold'
+import SectionHeader from './section-header.astro'
 
 import service01 from '../assets/images/service-01.webp'
 import service02 from '../assets/images/service-02.webp'
@@ -10,50 +11,46 @@ import service05 from '../assets/images/service-05.webp'
 import service06 from '../assets/images/service-06.webp'
 
 const services = [
-  { title: 'Terraplenagem', span: 'md:col-span-2 md:row-span-1', img: service01 },
-  { title: 'Saneamento Básico', span: 'md:col-span-1 md:row-span-1', img: service03 },
-  { title: 'Obras de Drenagem', span: 'md:col-span-1 md:row-span-1', img: service04 },
-  { title: 'Construção Civil', span: 'md:col-span-1 md:row-span-1', img: service05 },
-  { title: 'Locação de Equipamentos', span: 'md:col-span-1 md:row-span-1', img: service06 },
-  { title: 'Pavimentação', span: 'md:col-span-2 md:row-span-1', img: service02 },
+	{ title: 'Terraplenagem', span: 'md:col-span-2 md:row-span-1', img: service01 },
+	{ title: 'Saneamento Básico', span: 'md:col-span-1 md:row-span-1', img: service03 },
+	{ title: 'Obras de Drenagem', span: 'md:col-span-1 md:row-span-1', img: service04 },
+	{ title: 'Construção Civil', span: 'md:col-span-1 md:row-span-1', img: service05 },
+	{ title: 'Locação de Equipamentos', span: 'md:col-span-1 md:row-span-1', img: service06 },
+	{ title: 'Pavimentação', span: 'md:col-span-2 md:row-span-1', img: service02 },
 ]
 
 function slugify(text: string) {
-  return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ /g, '-')
+	return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ /g, '-')
 }
 ---
 
 <section id="servicos" class="py-24 bg-brand-light">
-  <div class="container mx-auto px-6 lg:px-12 max-w-7xl">
-    <div class="mb-16 flex flex-col md:flex-row md:justify-between md:items-end gap-6">
-      <div>
-        <h2 class="text-4xl md:text-5xl font-display font-bold text-brand-primary">Nossos Serviços</h2>
-        <p class="mt-4 text-xl text-brand-primary/60 max-w-2xl text-balance">Atendemos a demanda do Vale do Paraíba e Litoral Norte com infraestrutura de alta performance.</p>
-      </div>
-      <a href="/servicos" class="inline-flex items-center gap-2 font-bold text-brand-primary hover:text-brand-accent transition">
-        Ver todos <IconArrowRight />
-      </a>
-    </div>
+	<div class="container mx-auto px-6 lg:px-12 max-w-7xl">
+		<SectionHeader
+			title="Nossos Serviços"
+			description="Atendemos a demanda do Vale do Paraíba e Litoral Norte com infraestrutura de alta performance."
+			cta={{ href: '/servicos' }}
+		/>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[260px] md:auto-rows-[300px]">
-      {services.map(service => (
-        <a href={`/servicos/${slugify(service.title)}`} class={`group relative overflow-hidden rounded-2xl block bg-brand-primary ${service.span}`}>
-          <Image
-            src={service.img}
-            alt={service.title}
-            class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
-            width={600}
-            height={600}
-          />
-          <div class="absolute inset-0 bg-linear-to-t from-brand-secondary/90 via-brand-secondary/20 to-transparent"></div>
-          <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
-            <h3 class="text-2xl md:text-3xl font-display font-bold text-white max-w-[80%]">{service.title}</h3>
-            <div class="w-12 h-12 rounded-full bg-brand-accent text-brand-secondary flex items-center justify-center md:translate-y-4 md:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300 shrink-0">
-              <IconArrowRight class="w-6 h-6" />
-            </div>
-          </div>
-        </a>
-      ))}
-    </div>
-  </div>
+		<div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[260px] md:auto-rows-[300px]">
+			{services.map(service => (
+				<a href={`/servicos/${slugify(service.title)}`} class={`group relative overflow-hidden rounded-2xl block bg-brand-primary ${service.span}`}>
+					<Image
+						src={service.img}
+						alt={service.title}
+						class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+						width={600}
+						height={600}
+					/>
+					<div class="absolute inset-0 bg-linear-to-t from-brand-secondary/90 via-brand-secondary/20 to-transparent"></div>
+					<div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+						<h3 class="text-2xl md:text-3xl font-display font-bold text-white max-w-[80%]">{service.title}</h3>
+						<div class="w-12 h-12 rounded-full bg-brand-accent text-brand-secondary flex items-center justify-center md:translate-y-4 md:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300 shrink-0">
+							<IconArrowRight class="w-6 h-6" />
+						</div>
+					</div>
+				</a>
+			))}
+		</div>
+	</div>
 </section>
