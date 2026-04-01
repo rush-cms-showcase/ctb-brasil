@@ -1,23 +1,19 @@
 ---
 import IconPhone from '~icons/ph/phone-bold'
-import IconMapPin from '~icons/ph/map-pin-bold'
 import IconEnvelope from '~icons/ph/envelope-simple-bold'
-
-const email = import.meta.env.EMAIL || 'ctbbrasil@ctbbrasil.com.br'
-const phone = import.meta.env.PHONE_NUMBER || '(12) 3884-2502'
-const mapsUrl = import.meta.env.GOOGLE_MAPS_URL || '/contato'
+import { contact } from '../config/site'
 
 const contactChannels = [
 	{
 		Icon: IconPhone,
-		value: phone,
-		href: `tel:${phone.replace(/[^0-9]/g, '')}`,
+		value: contact.phone,
+		href: `tel:${contact.phone.replace(/[^0-9]/g, '')}`,
 		label: 'Atendimento Comercial'
 	},
 	{
 		Icon: IconEnvelope,
-		value: email,
-		href: `mailto:${email}`,
+		value: contact.email,
+		href: `mailto:${contact.email}`,
 		label: 'Email Direto'
 	}
 ]
@@ -67,7 +63,7 @@ const contactChannels = [
 				</div>
 
 				<div class="mt-14 pt-8 border-t border-white/10">
-					<a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center py-5 bg-brand-accent text-brand-secondary font-bold text-xl rounded-lg hover:bg-white transition duration-300 shadow-md">
+					<a href={contact.mapsUrl} target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center py-5 bg-brand-accent text-brand-secondary font-bold text-xl rounded-lg hover:bg-white transition duration-300 shadow-md">
 						Acessar Mapa
 					</a>
 				</div>

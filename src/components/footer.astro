@@ -2,35 +2,29 @@
 import IconInstagram from '~icons/ph/instagram-logo-bold'
 import IconLinkedin from '~icons/ph/linkedin-logo-bold'
 import IconFacebook from '~icons/ph/facebook-logo-bold'
+import { contact, socialUrls, nav } from '../config/site'
 
 const currentYear = new Date().getFullYear()
 
-const email = import.meta.env.EMAIL || 'ctbbrasil@ctbbrasil.com.br'
-const phone = import.meta.env.PHONE_NUMBER || '(12) 3884-2502'
-const instagramUrl = import.meta.env.INSTAGRAM_URL || '#'
-const facebookUrl = import.meta.env.FACEBOOK_URL || '#'
-const linkedinUrl = import.meta.env.LINKEDIN_URL || '#'
-const mapsUrl = import.meta.env.GOOGLE_MAPS_URL || '#'
-
 const socialLinks = [
-	{ href: instagramUrl, Icon: IconInstagram, label: 'Instagram' },
-	{ href: linkedinUrl, Icon: IconLinkedin, label: 'LinkedIn' },
-	{ href: facebookUrl, Icon: IconFacebook, label: 'Facebook' }
-]
+	{ href: socialUrls.instagram, Icon: IconInstagram, label: 'Instagram' },
+	{ href: socialUrls.linkedin, Icon: IconLinkedin, label: 'LinkedIn' },
+	{ href: socialUrls.facebook, Icon: IconFacebook, label: 'Facebook' },
+].filter(s => s.href !== '#')
+
+const privacyUrl = import.meta.env.PRIVACY_URL
+const termsUrl = import.meta.env.TERMS_URL
 
 const quickLinks = [
-	{ label: 'Sobre a CTB', href: '#sobre' },
-	{ label: 'Serviços', href: '#servicos' },
-	{ label: 'Nossas Obras', href: '#obras' },
-	{ label: 'Fale Conosco', href: '#contato' },
-	{ label: 'Política de Privacidade', href: '#' },
-	{ label: 'Termos de Uso', href: '#' },
+	...nav.map(item => ({ label: item.label, href: item.href })),
+	...(privacyUrl ? [{ label: 'Política de Privacidade', href: privacyUrl }] : []),
+	...(termsUrl ? [{ label: 'Termos de Uso', href: termsUrl }] : []),
 ]
 
 const contactLinks = [
-	{ label: phone, href: `tel:${phone.replace(/[^0-9]/g, '')}` },
-	{ label: email, href: `mailto:${email}` },
-	{ label: 'Vale do Paraíba, SP', href: mapsUrl, isExternal: true }
+	{ label: contact.phone, href: `tel:${contact.phone.replace(/[^0-9]/g, '')}` },
+	{ label: contact.email, href: `mailto:${contact.email}` },
+	{ label: 'Vale do Paraíba, SP', href: contact.mapsUrl, isExternal: true },
 ]
 ---
 
