@@ -4,8 +4,8 @@ import Footer from '../components/footer.astro'
 import '../styles/global.css'
 
 interface Props {
-  title: string
-  description?: string
+	title: string
+	description?: string
 }
 
 const { title, description = "Construtora e Terraplenagem Brasil - Construindo o futuro sustentável." } = Astro.props
@@ -13,26 +13,26 @@ const { title, description = "Construtora e Terraplenagem Brasil - Construindo o
 
 <!doctype html>
 <html lang="pt-BR" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet" />
-    
-    <title>{title}</title>
-  </head>
-  <body class="bg-brand-light text-brand-primary font-sans antialiased selection:bg-brand-accent selection:text-brand-secondary overflow-x-hidden">
-    <Header />
-    <!-- Restringindo brutalmente a largura máxima ao Viewport (Previne bug do iOS Safari/Chrome V8 mobile) -->
-    <div class="flex flex-col min-h-screen overflow-x-hidden w-full relative">
-      <main class="grow">
-        <slot />
-      </main>
-      <Footer />
-    </div>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet" />
+		
+		<title>{title}</title>
+	</head>
+	<body class="bg-brand-light text-brand-primary font-sans antialiased selection:bg-brand-accent selection:text-brand-secondary overflow-x-hidden">
+		<Header />
+		<!-- Restringindo brutalmente a largura máxima ao Viewport (Previne bug do iOS Safari/Chrome V8 mobile) -->
+		<div class="flex flex-col min-h-screen overflow-x-hidden w-full relative">
+			<main class="grow">
+				<slot />
+			</main>
+			<Footer />
+		</div>
+	</body>
 </html>

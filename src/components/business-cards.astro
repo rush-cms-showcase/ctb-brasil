@@ -8,71 +8,71 @@ const phone = import.meta.env.PHONE_NUMBER || '(12) 3884-2502'
 const mapsUrl = import.meta.env.GOOGLE_MAPS_URL || '/contato'
 
 const contactChannels = [
-  {
-    Icon: IconPhone,
-    value: phone,
-    href: `tel:${phone.replace(/[^0-9]/g, '')}`,
-    label: 'Atendimento Comercial'
-  },
-  {
-    Icon: IconEnvelope,
-    value: email,
-    href: `mailto:${email}`,
-    label: 'Email Direto'
-  }
+	{
+		Icon: IconPhone,
+		value: phone,
+		href: `tel:${phone.replace(/[^0-9]/g, '')}`,
+		label: 'Atendimento Comercial'
+	},
+	{
+		Icon: IconEnvelope,
+		value: email,
+		href: `mailto:${email}`,
+		label: 'Email Direto'
+	}
 ]
 ---
 
 <section id="contato" class="py-24 bg-white relative">
-  <div class="container mx-auto px-6 lg:px-12 max-w-7xl">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      
-      <div class="border-2 border-brand-primary rounded-3xl p-10 md:p-14 text-brand-primary">
-        <h2 class="text-4xl md:text-5xl font-display font-bold mb-8">Somos a CTB</h2>
-        <p class="text-brand-primary/80 text-xl leading-relaxed font-light mb-8">
-          Fundada em 1997, a Construtora e Terraplenagem Brasil executa diversas obras de Engenharia, Pavimentação, Saneamento Básico, Locação de Equipamentos e Construção Civil.
-        </p>
-        <p class="text-brand-primary/80 lg:text-xl leading-relaxed font-light mb-12">
-          Atuamos constantemente no Vale do Paraíba e Litoral Norte do Estado de São Paulo com excelência e qualidade técnica em cada etapa.
-        </p>
-        <a href="#sobre" class="border-2 inline-flex py-4 px-8 rounded-lg border-brand-primary hover:bg-brand-primary text-brand-primary hover:text-white font-bold transition duration-300 text-lg">
-          Conheça nossa História
-        </a>
-      </div>
+	<div class="container mx-auto px-6 lg:px-12 max-w-7xl">
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+			
+			<div class="border-2 border-brand-primary rounded-3xl p-10 md:p-14 text-brand-primary">
+				<h2 class="text-4xl md:text-5xl font-display font-bold mb-8">Somos a CTB</h2>
+				<p class="text-brand-primary/80 text-xl leading-relaxed font-light mb-8">
+					Fundada em 1997, a Construtora e Terraplenagem Brasil executa diversas obras de Engenharia, Pavimentação, Saneamento Básico, Locação de Equipamentos e Construção Civil.
+				</p>
+				<p class="text-brand-primary/80 lg:text-xl leading-relaxed font-light mb-12">
+					Atuamos constantemente no Vale do Paraíba e Litoral Norte do Estado de São Paulo com excelência e qualidade técnica em cada etapa.
+				</p>
+				<a href="#sobre" class="border-2 inline-flex py-4 px-8 rounded-lg border-brand-primary hover:bg-brand-primary text-brand-primary hover:text-white font-bold transition duration-300 text-lg">
+					Conheça nossa História
+				</a>
+			</div>
 
-      <div class="bg-brand-surface rounded-3xl p-10 md:p-14 text-white shadow-2xl flex flex-col justify-between">
-        <div>
-          <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 text-brand-accent">Fale Conosco!</h2>
-          <p class="text-white/80 lg:text-xl mb-12">
-            Entre em contato através dos nossos canais de comunicação para solicitar um orçamento ou tirar dúvidas.
-          </p>
-          
-          <div class="space-y-8">
-            {contactChannels.map(channel => (
-              <a href={channel.href} class="flex items-center gap-6 group">
-                <div class="w-14 h-14 bg-white/5 rounded-full flex items-center justify-center text-brand-accent shrink-0 group-hover:scale-110 group-hover:bg-brand-accent group-hover:text-brand-primary transition">
-                  <channel.Icon class="w-7 h-7" />
-                </div>
-                <div>
-                  <p class="font-bold lg:text-xl group-hover:text-brand-accent transition">
-                    {channel.value}
-                  </p>
-                  <p class="text-white/50 text-base mt-1">
-                    {channel.label}
-                  </p>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
+			<div class="bg-brand-surface rounded-3xl p-10 md:p-14 text-white shadow-2xl flex flex-col justify-between">
+				<div>
+					<h2 class="text-4xl md:text-5xl font-display font-bold mb-6 text-brand-accent">Fale Conosco!</h2>
+					<p class="text-white/80 lg:text-xl mb-12">
+						Entre em contato através dos nossos canais de comunicação para solicitar um orçamento ou tirar dúvidas.
+					</p>
+					
+					<div class="space-y-8">
+						{contactChannels.map(channel => (
+							<a href={channel.href} class="flex items-center gap-6 group">
+								<div class="w-14 h-14 bg-white/5 rounded-full flex items-center justify-center text-brand-accent shrink-0 group-hover:scale-110 group-hover:bg-brand-accent group-hover:text-brand-primary transition">
+									<channel.Icon class="w-7 h-7" />
+								</div>
+								<div>
+									<p class="font-bold lg:text-xl group-hover:text-brand-accent transition">
+										{channel.value}
+									</p>
+									<p class="text-white/50 text-base mt-1">
+										{channel.label}
+									</p>
+								</div>
+							</a>
+						))}
+					</div>
+				</div>
 
-        <div class="mt-14 pt-8 border-t border-white/10">
-          <a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center py-5 bg-brand-accent text-brand-secondary font-bold text-xl rounded-lg hover:bg-white transition duration-300 shadow-md">
-            Acessar Mapa
-          </a>
-        </div>
-      </div>
+				<div class="mt-14 pt-8 border-t border-white/10">
+					<a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center py-5 bg-brand-accent text-brand-secondary font-bold text-xl rounded-lg hover:bg-white transition duration-300 shadow-md">
+						Acessar Mapa
+					</a>
+				</div>
+			</div>
 
-    </div>
-  </div>
+		</div>
+	</div>
 </section>
