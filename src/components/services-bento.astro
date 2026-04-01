@@ -26,7 +26,7 @@ function slugify(text: string) {
 		/>
 	</div>
 
-	<div class="px-4">
+	<div class="px-4 lg:px-8">
 		<div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[300px] md:auto-rows-[380px]">
 			{services.map(service => (
 				<a href={`/servicos/${slugify(service.title)}`} class={`group relative overflow-hidden rounded-2xl block bg-brand-primary ${service.span}`}>
