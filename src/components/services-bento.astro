@@ -1,22 +1,14 @@
 ---
-import { Image } from 'astro:assets'
 import IconArrowRight from '~icons/ph/arrow-right-bold'
 import SectionHeader from './section-header.astro'
 
-import service01 from '../assets/images/service-01.webp'
-import service02 from '../assets/images/service-02.webp'
-import service03 from '../assets/images/service-03.webp'
-import service04 from '../assets/images/service-04.webp'
-import service05 from '../assets/images/service-05.webp'
-import service06 from '../assets/images/service-06.webp'
-
 const services = [
-	{ title: 'Terraplenagem', span: 'md:col-span-2 md:row-span-1', img: service01 },
-	{ title: 'Saneamento Básico', span: 'md:col-span-1 md:row-span-1', img: service03 },
-	{ title: 'Obras de Drenagem', span: 'md:col-span-1 md:row-span-1', img: service04 },
-	{ title: 'Construção Civil', span: 'md:col-span-1 md:row-span-1', img: service05 },
-	{ title: 'Locação de Equipamentos', span: 'md:col-span-1 md:row-span-1', img: service06 },
-	{ title: 'Pavimentação', span: 'md:col-span-2 md:row-span-1', img: service02 },
+	{ title: 'Terraplenagem', span: 'md:col-span-2 md:row-span-1', img: 'service-01.webp' },
+	{ title: 'Saneamento Básico', span: 'md:col-span-1 md:row-span-1', img: 'service-03.webp' },
+	{ title: 'Obras de Drenagem', span: 'md:col-span-1 md:row-span-1', img: 'service-04.webp' },
+	{ title: 'Construção Civil', span: 'md:col-span-1 md:row-span-1', img: 'service-05.webp' },
+	{ title: 'Locação de Equipamentos', span: 'md:col-span-1 md:row-span-1', img: 'service-06.webp' },
+	{ title: 'Pavimentação', span: 'md:col-span-2 md:row-span-1', img: 'service-02.webp' },
 ]
 
 function slugify(text: string) {
@@ -24,19 +16,22 @@ function slugify(text: string) {
 }
 ---
 
-<section id="servicos" class="py-24 bg-brand-light">
-	<div class="container mx-auto px-6 lg:px-12 max-w-7xl">
+<section id="servicos" class="py-24">
+	<div class="section-container">
 		<SectionHeader
 			title="Nossos Serviços"
 			description="Atendemos a demanda do Vale do Paraíba e Litoral Norte com infraestrutura de alta performance."
-			cta={{ href: '/servicos' }}
+			cta={{ href: '/obras', label: 'Ver Obras' }}
+			className="mb-4 lg:mb-8"
 		/>
+	</div>
 
-		<div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[260px] md:auto-rows-[300px]">
+	<div class="px-4">
+		<div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[300px] md:auto-rows-[380px]">
 			{services.map(service => (
 				<a href={`/servicos/${slugify(service.title)}`} class={`group relative overflow-hidden rounded-2xl block bg-brand-primary ${service.span}`}>
-					<Image
-						src={service.img}
+					<img
+						src={`/images/services/${service.img}`}
 						alt={service.title}
 						class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
 						width={600}
