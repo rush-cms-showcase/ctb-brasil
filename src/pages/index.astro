@@ -4,17 +4,19 @@ import Hero from '../components/hero.astro'
 import ImpactStats from '../components/impact-stats.astro'
 import ServicesBento from '../components/services-bento.astro'
 import Clients from '../components/clients.astro'
+import EquipmentGrid from '../components/equipment-grid.astro'
 import BusinessCards from '../components/business-cards.astro'
 
-const metaDescription = "CTB Brasil - Construtora e Terraplenagem. Construindo um futuro sustentável com infraestrutura pesada no Vale do Paraíba desde 1997."
+const metaDescription = "Grupo CTB - Construtora e Terraplenagem. Construindo um futuro sustentável com infraestrutura pesada no Vale do Paraíba desde 1997."
 ---
 
-<BaseLayout title="CTB Brasil | Alta Performance em Infraestrutura" description={metaDescription}>
+<BaseLayout title="Grupo CTB - Alta Performance em Infraestrutura" description={metaDescription}>
 	<main class="w-full flex flex-col min-h-screen">
 		<Hero />
 		<ImpactStats />
 		<ServicesBento />
 		<Clients />
+		<EquipmentGrid />
 		<BusinessCards />
 	</main>
 </BaseLayout>

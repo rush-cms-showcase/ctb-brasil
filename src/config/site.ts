@@ -11,8 +11,8 @@ export const socialUrls = {
 }
 
 export const nav = [
-	{ label: 'Sobre', href: '#sobre' },
-	{ label: 'Serviços', href: '#servicos' },
-	{ label: 'Obras', href: '#obras' },
-	{ label: 'Contato', href: '#contato' },
+	{ label: 'Sobre', href: '/sobre' },
+	{ label: 'Serviços', href: '/servicos' },
+	{ label: 'Obras', href: '/obras' },
+	{ label: 'Contato', href: '/contato' },
 ]

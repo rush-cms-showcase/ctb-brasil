@@ -4,7 +4,7 @@ export const GET: APIRoute = () => {
 	return new Response(
 		JSON.stringify({ 
 			status: 'ok',
-			service: 'CTB Brasil',
+			service: 'Grupo CTB',
 			timestamp: Date.now()
 		}),
 		{ 
