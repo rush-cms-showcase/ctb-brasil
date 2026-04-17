@@ -2,6 +2,7 @@ export const contact = {
 	email: import.meta.env.EMAIL || 'ctbbrasil@ctbbrasil.com.br',
 	phone: import.meta.env.PHONE_NUMBER || '(12) 3884-2502',
 	mapsUrl: import.meta.env.GOOGLE_MAPS_URL || '#',
+	mapsEmbedUrl: import.meta.env.GOOGLE_MAPS_EMBED_URL || 'https://maps.google.com/maps?q=-23.5769357,-45.2730135&t=&z=16&ie=UTF8&iwloc=&output=embed',
 }
 
 export const socialUrls = {
