@@ -19,7 +19,7 @@ const menuBars = Array.from({ length: 3 })
 ---
 
 <div class="fixed inset-x-0 top-0 z-50 mx-auto max-w-7xl px-4 sm:px-6 lg:px-12" id="main-nav-wrapper">
-	<div class="w-full bg-brand-primary/70 backdrop-blur-lg px-4 py-2 text-white flex flex-row items-center justify-between gap-4">
+	<div class="w-full bg-brand-dark/70 backdrop-blur-lg px-4 py-2 text-white flex flex-row items-center justify-between gap-4">
 		<div class="flex items-center gap-3">
 			{socialLinks.map(({ href, Icon, label }) => (
 				<a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} class="text-white/70 hover:text-white transition">
@@ -41,10 +41,10 @@ const menuBars = Array.from({ length: 3 })
 	<header class="w-full bg-brand-light/70 backdrop-blur-lg p-4 lg:py-4 rounded-b-3xl flex flex-col md:flex-row justify-between md:items-center border border-brand-primary/5 shadow-xl shadow-black/5 relative overflow-hidden transition-all">
 		<div class="flex justify-between items-center w-full md:w-auto relative z-20">
 			<a href="/" class="flex items-center">
-				<img src={logoImage} alt="CTB Brasil" class="h-10 lg:h-12 w-auto" />
+				<img src={logoImage} alt="Grupo CTB" class="h-10 lg:h-12 w-auto" />
 				<div class="flex flex-col ml-2">
 					<span class="font-bold text-green-800">
-						CTB Brasil
+						Grupo CTB
 					</span>
 					<span class="text-xs font-bold text-gray-500">
 						Construtora e Terraplenagem
