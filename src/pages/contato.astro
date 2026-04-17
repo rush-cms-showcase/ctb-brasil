@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/base-layout.astro'
+import BusinessCards from '../components/business-cards.astro'
+import { contact } from '../config/site'
+
+const schemaData = {
+	"@context": "https://schema.org",
+	"@type": "ContactPage",
+	"name": "Contato - Grupo CTB",
+	"description": "Entre em contato com o Grupo CTB para solicitar orçamentos, alugar equipamentos ou tirar dúvidas.",
+	"mainEntity": {
+		"@type": "Organization",
+		"name": "Grupo CTB",
+		"telephone": contact.phone,
+		"email": contact.email,
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "Rua Três, 95 - Tabatinga",
+			"addressLocality": "Caraguatatuba",
+			"addressRegion": "SP",
+			"postalCode": "11679-209",
+			"addressCountry": "BR"
+		}
+	}
+}
+---
+
+<BaseLayout title="Contato | Grupo CTB" description="Entre em contato com o Grupo CTB. Solicite orçamentos para terraplenagem, construção civil, locação de equipamentos e mais.">
+	<Fragment slot="head">
+		<link rel="canonical" href="https://www.ctbbrasil.com.br/contato" />
+		<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+	</Fragment>
+
+	<main class="pt-40 pb-0">
+		<div class="section-container mb-12">
+			<h1 class="text-4xl md:text-5xl font-display font-bold text-brand-primary mb-4">Contato</h1>
+			<p class="text-xl text-brand-primary/60 max-w-2xl">Solicite um orçamento ou tire suas dúvidas. Estamos prontos para atender sua obra.</p>
+		</div>
+		<BusinessCards />
+	</main>
+</BaseLayout>

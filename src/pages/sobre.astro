@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/base-layout.astro'
+import { contact } from '../config/site'
+
+const mod = await import('../content/sobre.md')
+const { title, description } = mod.frontmatter
+const content = mod.compiledContent()
+
+const schemaData = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	"name": "Grupo CTB",
+	"legalName": "Construtora e Terraplenagem Brasil Ltda",
+	"url": "https://www.ctbbrasil.com.br",
+	"foundingDate": "1997",
+	"telephone": contact.phone,
+	"email": contact.email,
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "Rua Três, 95 - Tabatinga",
+		"addressLocality": "Caraguatatuba",
+		"addressRegion": "SP",
+		"postalCode": "11679-209",
+		"addressCountry": "BR"
+	},
+	"areaServed": ["Vale do Paraíba", "Litoral Norte de São Paulo"],
+	"knowsAbout": ["Terraplenagem", "Construção Civil", "Pavimentação", "Saneamento Básico", "Locação de Equipamentos", "Drenagem", "Demolições", "Reciclagem"]
+}
+---
+
+<BaseLayout title={`${title} | Grupo CTB`} description={description}>
+	<Fragment slot="head">
+		<link rel="canonical" href="https://www.ctbbrasil.com.br/sobre" />
+		<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+	</Fragment>
+
+	<main class="pt-40 pb-24">
+		<div class="section-container max-w-3xl">
+			<article class="prose prose-lg xl:prose-xl max-w-none" set:html={content} />
+		</div>
+	</main>
+</BaseLayout>
+
+<style is:global>
+	.prose h1 {
+		font-family: var(--font-display);
+		color: var(--color-brand-primary);
+		font-weight: 800;
+		font-size: 2.5rem;
+		margin-bottom: 1.5rem;
+	}
+	.prose h2 {
+		font-family: var(--font-display);
+		color: var(--color-brand-primary);
+		font-weight: 700;
+		margin-top: 2.5rem;
+	}
+	.prose p {
+		color: var(--color-brand-primary);
+		opacity: 0.75;
+		line-height: 1.9;
+	}
+	.prose ul {
+		color: var(--color-brand-primary);
+		opacity: 0.75;
+	}
+	.prose li {
+		margin-bottom: 0.25rem;
+	}
+	.prose strong {
+		color: var(--color-brand-primary);
+		opacity: 1;
+	}
+</style>
