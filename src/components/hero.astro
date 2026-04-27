@@ -10,6 +10,8 @@ const hero = import.meta.env.HERO_IMG || '/hero-image.webp'
 				src={hero}
 				alt="Background Obra CTB"
 				class="w-full h-full object-cover animate-ken-burns origin-center"
+				fetchpriority="high"
+				loading="eager"
 			/>
 			<div class="absolute inset-0 bg-brand-dark/40 bg-linear-to-t from-brand-dark to-transparent mix-blend-multiply"></div>
 		</div>
