@@ -1,11 +1,11 @@
 ---
 import { whatsappUrl } from '../utils/whatsapp'
-const hero = import.meta.env.HERO_IMG || '/hero-image.png'
+const hero = import.meta.env.HERO_IMG || '/hero-image.webp'
 ---
 
 <section class="lg:px-8">
 	<div class="relative w-full h-[85vh] min-h-155 lg:min-h-150 rounded-b-2xl lg:rounded-b-3xl flex items-end justify-center overflow-hidden py-16 lg:py-32">
-		<div class="absolute inset-0 z-0 overflow-hidden">
+		<div class="absolute inset-0 z-0 overflow-hidden bg-brand-dark">
 			<img
 				src={hero}
 				alt="Background Obra CTB"
