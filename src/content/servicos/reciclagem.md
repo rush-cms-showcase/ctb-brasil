@@ -1,9 +1,3 @@
----
-title: Reciclagem
-description: Reciclagem de resíduos da construção civil no Litoral Norte. Agregados reciclados, gestão de resíduos e sustentabilidade ambiental.
-image: service-06.webp
----
-
 # Reciclagem
 
 Através da **CMB**, empresa do Grupo CTB fundada em 2015, atuamos no ramo de reciclagem de resíduos da construção civil e demolição (RCD). Nossa unidade conta com galpões cobertos para estocagem e equipamentos de britagem para transformar entulho em agregados reciclados de alta qualidade.

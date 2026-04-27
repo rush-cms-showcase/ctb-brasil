@@ -1,9 +1,3 @@
----
-title: Locação de Equipamentos
-description: Aluguel de máquinas pesadas e equipamentos para obras no Litoral Norte. Escavadeiras, caminhões, plataformas elevatórias e mais.
-image: service-06.webp
----
-
 # Locação de Equipamentos
 
 O Grupo CTB e a TCL Construções e Locações disponibilizam uma frota completa de máquinas pesadas e equipamentos para locação. Todos os equipamentos são próprios, revisados periodicamente e operados por profissionais qualificados, garantindo segurança e produtividade na sua obra.

@@ -1,9 +1,3 @@
----
-title: Demolições
-description: Demolição controlada de edificações no Vale do Paraíba e Litoral Norte. Segurança, agilidade e destinação correta de resíduos.
-image: service-05.webp
----
-
 # Demolições
 
 O Grupo CTB realiza serviços de demolição controlada de edificações, estruturas de concreto, muros e pavimentos, com total segurança e em conformidade com as normas vigentes. Nosso diferencial está na integração do serviço de demolição com a destinação adequada dos resíduos, garantindo um processo limpo e sustentável de ponta a ponta.

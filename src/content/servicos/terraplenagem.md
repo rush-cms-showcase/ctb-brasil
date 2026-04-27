@@ -1,9 +1,3 @@
----
-title: Terraplenagem
-description: Serviços de terraplenagem no Vale do Paraíba e Litoral Norte com maquinário próprio. Escavações, aterros, cortes e nivelamento de terrenos desde 1997.
-image: service-01.webp
----
-
 # Terraplenagem
 
 A terraplenagem é a base de qualquer grande empreendimento. No Grupo CTB, somos especialistas nessa etapa fundamental, com mais de 28 anos de experiência transformando terrenos irregulares em bases sólidas e perfeitamente niveladas para construções residenciais, comerciais e industriais.

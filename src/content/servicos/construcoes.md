@@ -1,9 +1,3 @@
----
-title: Construção Civil
-description: Execução de obras civis no Vale do Paraíba e Litoral Norte. Edificações, reformas, fundações e estruturas com mão de obra qualificada.
-image: service-05.webp
----
-
 # Construção Civil
 
 O Grupo CTB atua na execução de obras de construção civil de diversos portes e complexidades. Com equipe multidisciplinar, maquinário próprio e gestão integrada de obra, oferecemos soluções completas que vão desde a fundação até os acabamentos finais.

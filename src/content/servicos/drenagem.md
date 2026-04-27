@@ -1,9 +1,3 @@
----
-title: Obras de Drenagem
-description: Projetos de drenagem urbana e rural no Vale do Paraíba. Galerias pluviais, canais, bueiros e sistemas de contenção de cheias.
-image: service-04.webp
----
-
 # Obras de Drenagem
 
 A drenagem é um dos pilares da infraestrutura urbana, responsável por prevenir enchentes, proteger taludes e garantir o escoamento correto das águas pluviais. O Grupo CTB possui vasta experiência na execução de obras de drenagem em áreas urbanas e rurais, com soluções técnicas adequadas à topografia e ao regime de chuvas da região.

@@ -1,9 +1,3 @@
----
-title: Pavimentação
-description: Pavimentação asfáltica e em blocos no Vale do Paraíba. Recapeamento, base, sub-base e sinalização viária com equipe especializada.
-image: service-02.webp
----
-
 # Pavimentação
 
 A pavimentação é a etapa que dá forma e funcionalidade às vias, estacionamentos e acessos de qualquer empreendimento. O Grupo CTB executa obras de pavimentação asfáltica e em blocos intertravados, com qualidade que garante durabilidade e conforto ao usuário por décadas.

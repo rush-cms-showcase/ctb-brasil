@@ -1,9 +1,3 @@
----
-title: Saneamento Básico
-description: Obras de saneamento básico no Litoral Norte e Vale do Paraíba. Redes de água, esgoto, estações elevatórias e infraestrutura sanitária.
-image: service-03.webp
----
-
 # Saneamento Básico
 
 O saneamento básico é essencial para a qualidade de vida e preservação ambiental. O Grupo CTB executa obras de saneamento com rigor técnico e compromisso ambiental, atendendo às exigências das concessionárias e órgãos reguladores.
