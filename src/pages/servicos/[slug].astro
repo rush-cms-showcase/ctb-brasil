@@ -4,18 +4,32 @@ import { whatsappUrl } from '../../utils/whatsapp'
 import { contact } from '../../config/site'
 import IconWhatsappLogo from '~icons/ph/whatsapp-logo'
 
+import { services } from '../../data/services'
+
 export async function getStaticPaths() {
-	const files = import.meta.glob<{ frontmatter: { title: string, description: string, image: string }, compiledContent: () => string }>('/src/content/servicos/*.md', { eager: true })
-	return Object.entries(files).map(([path, mod]) => ({
-		params: { slug: path.split('/').pop()?.replace('.md', '') },
-		props: { mod }
-	}))
+	const files = import.meta.glob<{ compiledContent: () => string }>('/src/content/servicos/*.md', { eager: true })
+	return services.map(service => {
+		const mdKey = `/src/content/servicos/${service.id}.md`
+		const mod = files[mdKey]
+		return {
+			params: { slug: service.id },
+			props: { service, content: mod ? mod.compiledContent() : '' }
+		}
+	})
 }
 
-const { mod } = Astro.props as { mod: { frontmatter: { title: string, description: string, image: string }, compiledContent: () => string } }
-const { title, description, image } = mod.frontmatter
-const content = mod.compiledContent()
+let { service, content } = Astro.props as { service?: import('../../data/services').Service, content?: string }
 const slug = Astro.params.slug
+
+if (!service) {
+	service = services.find(s => s.id === slug)
+	if (!service) return Astro.redirect('/404')
+	const files = import.meta.glob<{ compiledContent: () => string }>('/src/content/servicos/*.md', { eager: true })
+	const mod = files[`/src/content/servicos/${service.id}.md`]
+	content = mod ? mod.compiledContent() : ''
+}
+
+const { title, description, img: image } = service!
 const canonicalUrl = `https://www.ctbbrasil.com.br/servicos/${slug}`
 
 const schemaData = {
@@ -55,16 +69,13 @@ const schemaData = {
 	<main>
 		<section class="w-full lg:px-8">
 			<div class="relative w-full h-[50vh] min-h-80 lg:min-h-96 flex items-end overflow-hidden rounded-b-4xl">
-				<img
-					src={`/images/services/${image}`}
-					alt={title}
-					class="absolute inset-0 w-full h-full object-cover"
-					width={1200}
-					height={600}
-				/>
-				<div class="absolute inset-0 bg-linear-to-t from-brand-dark via-brand-dark/40 to-transparent"></div>
-				<div class="section-container relative z-10 pb-12 lg:pb-16">
-					<h1 class="text-3xl md:text-5xl lg:text-6xl font-display font-extrabold text-white max-w-3xl">{title}</h1>
+				<div 
+					class="absolute -inset-10 bg-fixed bg-center bg-cover bg-no-repeat blur-[6px]" 
+					style={`background-image: url('/images/services/${image}')`}
+				></div>
+				<div class="absolute inset-0 bg-linear-to-t from-brand-dark/90 via-brand-dark/50 to-transparent"></div>
+				<div class="section-container relative z-10 pb-12 lg:pb-16 w-full">
+					<h1 class="text-3xl md:text-5xl lg:text-6xl font-display font-extrabold text-white max-w-3xl drop-shadow-lg">{title}</h1>
 				</div>
 			</div>
 		</section>
