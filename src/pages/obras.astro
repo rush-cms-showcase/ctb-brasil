@@ -1,28 +1,12 @@
 ---
 import BaseLayout from '../layouts/base-layout.astro'
+import { portfolio } from '../data/portfolio'
 
-const obras = [
-	{ id: 1, title: 'Terraplenagem Residencial', height: 'h-64' },
-	{ id: 2, title: 'Pavimentação Urbana', height: 'h-80' },
-	{ id: 3, title: 'Drenagem Pluvial', height: 'h-72' },
-	{ id: 4, title: 'Saneamento Básico', height: 'h-96' },
-	{ id: 5, title: 'Escavação Industrial', height: 'h-64' },
-	{ id: 6, title: 'Aterro Controlado', height: 'h-80' },
-	{ id: 7, title: 'Construção Civil', height: 'h-72' },
-	{ id: 8, title: 'Nivelamento de Terreno', height: 'h-64' },
-	{ id: 9, title: 'Obra Viária', height: 'h-96' },
-	{ id: 10, title: 'Fundação Profunda', height: 'h-72' },
-	{ id: 11, title: 'Contenção de Encosta', height: 'h-80' },
-	{ id: 12, title: 'Infraestrutura Urbana', height: 'h-64' },
-	{ id: 13, title: 'Demolição Controlada', height: 'h-72' },
-	{ id: 14, title: 'Loteamento', height: 'h-96' },
-	{ id: 15, title: 'Estrada Rural', height: 'h-64' },
-	{ id: 16, title: 'Rede de Esgoto', height: 'h-80' },
-	{ id: 17, title: 'Canalização', height: 'h-72' },
-	{ id: 18, title: 'Compactação de Solo', height: 'h-64' },
-	{ id: 19, title: 'Ponte e Viaduto', height: 'h-96' },
-	{ id: 20, title: 'Urbanização', height: 'h-80' },
-]
+const heights = ['h-64', 'h-80', 'h-72', 'h-96']
+const obras = portfolio.map((item, index) => ({
+	...item,
+	height: heights[index % heights.length]
+}))
 
 const col1 = obras.filter((_, i) => i % 3 === 0)
 const col2 = obras.filter((_, i) => i % 3 === 1)
@@ -42,7 +26,7 @@ const columns = [col1, col2, col3]
 						{col.map(obra => (
 							<div class={`relative rounded-2xl overflow-hidden ${obra.height}`}>
 								<img
-									src={`https://picsum.photos/seed/ctb${obra.id}/600/800`}
+									src={obra.image}
 									alt={obra.title}
 									class="w-full h-full object-cover"
 									loading="lazy"
@@ -62,16 +46,16 @@ const columns = [col1, col2, col3]
 				{obras.map(obra => (
 					<div class="relative rounded-2xl overflow-hidden h-64">
 						<img
-							src={`https://picsum.photos/seed/ctb${obra.id}/600/800`}
+							src={obra.image}
 							alt={obra.title}
 							class="w-full h-full object-cover"
 							loading="lazy"
 							decoding="async"
 						/>
-						<div class="absolute inset-0 bg-linear-to-t from-brand-dark/70 via-transparent to-transparent"></div>
-						<div class="absolute bottom-4 left-4 right-4">
-							<h3 class="text-lg font-display font-bold text-white">{obra.title}</h3>
-						</div>
+								<div class="absolute inset-0 bg-linear-to-t from-brand-dark/70 via-transparent to-transparent"></div>
+								<div class="absolute bottom-4 left-4 right-4">
+									<h3 class="text-lg font-display font-bold text-white">{obra.title}</h3>
+								</div>
 					</div>
 				))}
 			</div>
