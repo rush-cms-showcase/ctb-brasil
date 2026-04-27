@@ -11,6 +11,9 @@ const metaDescription = "Grupo CTB - Construtora e Terraplenagem. Construindo um
 ---
 
 <BaseLayout title="Grupo CTB - Alta Performance em Infraestrutura" description={metaDescription}>
+	<Fragment slot="head">
+		<link rel="preload" href="/hero-image.webp" as="image" type="image/webp" fetchpriority="high" />
+	</Fragment>
 	<main class="w-full flex flex-col min-h-screen">
 		<Hero />
 		<ImpactStats />
