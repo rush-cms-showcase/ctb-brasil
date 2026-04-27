@@ -3,7 +3,7 @@ import SectionHeader from './section-header.astro'
 import IconTruck from '~icons/ph/truck-bold'
 import IconMagnifyingGlass from '~icons/ph/magnifying-glass-bold'
 import IconCaretDown from '~icons/ph/caret-down-bold'
-import equipamentos from '../data/equipamentos.json'
+import { equipments } from '../data/equipments'
 
 const whatsappNumber = import.meta.env.WHATSAPP_NUMBER || '1238842502'
 
@@ -61,31 +61,25 @@ const categories = [
 				class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 overflow-hidden transition-[max-height] duration-500 ease-in-out"
 				id="equipment-grid"
 			>
-				{equipamentos.map(equip => {
+				{equipments.map(equip => {
 					const whatsappText = encodeURIComponent(`Olá! Gostaria de alugar o equipamento ${equip.name}`)
 					const whatsappLink = `https://wa.me/55${whatsappNumber}?text=${whatsappText}`
 					return (
 						<div
-							class="equipment-card rounded-2xl border-2 border-brand-primary/8 bg-white overflow-hidden flex flex-col h-full"
+							class="equipment-card rounded-2xl border border-brand-primary/20 bg-white overflow-hidden flex flex-col h-full"
 							data-category={equip.category}
 							data-name={equip.name.toLowerCase()}
 						>
-							<div class="aspect-4/3 bg-brand-primary/5 flex items-center justify-center">
-								{equip.image ? (
-									<img
-										src={equip.image}
-										alt={equip.name}
-										class="w-full h-full object-cover"
-										loading="lazy"
-										decoding="async"
-										width={400}
-										height={300}
-									/>
-								) : (
-									<div class="flex flex-col items-center text-brand-primary/15">
-										<IconTruck class="w-12 h-12" />
-									</div>
-								)}
+							<div class="aspect-4/3 bg-linear-to-t from-brand-primary/10 to-brand-primary/5 flex items-center justify-center">
+								<img
+									src={`/images/equipments/${equip.id}.webp`}
+									alt={equip.name}
+									class="w-full h-full object-cover border-b border-brand-primary/5"
+									loading="lazy"
+									decoding="async"
+									width={400}
+									height={300}
+								/>
 							</div>
 							<div class="p-4 flex flex-col gap-2 grow">
 								<div>
