@@ -2,20 +2,9 @@
 import IconArrowRight from '~icons/ph/arrow-right-bold'
 import SectionHeader from './section-header.astro'
 
-const services = [
-	{ title: 'Terraplenagem', span: 'md:col-span-2 md:row-span-1', img: 'service-01.webp' },
-	{ title: 'Saneamento Básico', span: 'md:col-span-1 md:row-span-1', img: 'service-03.webp' },
-	{ title: 'Obras de Drenagem', span: 'md:col-span-1 md:row-span-1', img: 'service-04.webp' },
-	{ title: 'Construção Civil', span: 'md:col-span-1 md:row-span-1', img: 'service-05.webp' },
-	{ title: 'Locação de Equipamentos', span: 'md:col-span-2 md:row-span-1', img: 'service-06.webp' },
-	{ title: 'Pavimentação', span: 'md:col-span-1 md:row-span-1', img: 'service-02.webp' },
-	{ title: 'Demolições', span: 'md:col-span-2 md:row-span-1', img: 'service-05.webp' },
-	{ title: 'Reciclagem', span: 'md:col-span-2 md:row-span-1', img: 'service-06.webp' },
-]
+import { services } from '../data/services'
 
-function slugify(text: string) {
-	return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ /g, '-')
-}
+
 ---
 
 <section id="servicos" class="py-24">
@@ -29,9 +18,9 @@ function slugify(text: string) {
 	</div>
 
 	<div class="px-4 lg:px-8">
-		<div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[300px] md:auto-rows-[380px]">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[300px]">
 			{services.map(service => (
-				<a href={`/servicos/${slugify(service.title)}`} class={`group relative overflow-hidden rounded-2xl block bg-brand-primary ${service.span}`}>
+				<a href={`/servicos/${service.id}`} class="group relative overflow-hidden rounded-2xl block bg-brand-primary">
 					<img
 						src={`/images/services/${service.img}`}
 						alt={service.title}

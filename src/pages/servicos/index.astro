@@ -2,16 +2,7 @@
 import BaseLayout from '../../layouts/base-layout.astro'
 import IconArrowRight from '~icons/ph/arrow-right-bold'
 
-const files = import.meta.glob<{ frontmatter: { title: string, description: string, image: string } }>('/src/content/servicos/*.md', { eager: true })
-
-const services = Object.entries(files).map(([path, mod]) => ({
-	slug: path.split('/').pop()?.replace('.md', ''),
-	...mod.frontmatter
-}))
-
-function slugify(text: string) {
-	return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ /g, '-')
-}
+import { services } from '../../data/services'
 
 const schemaData = {
 	"@context": "https://schema.org",
@@ -24,7 +15,7 @@ const schemaData = {
 			"@type": "Service",
 			"name": s.title,
 			"description": s.description,
-			"url": `https://www.ctbbrasil.com.br/servicos/${s.slug}`
+			"url": `https://www.ctbbrasil.com.br/servicos/${s.id}`
 		}
 	}))
 }
@@ -43,9 +34,9 @@ const schemaData = {
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 				{services.map(service => (
-					<a href={`/servicos/${service.slug}`} class="group relative rounded-2xl overflow-hidden block h-72 md:h-80">
+					<a href={`/servicos/${service.id}`} class="group relative rounded-2xl overflow-hidden block h-72 md:h-80">
 						<img
-							src={`/images/services/${service.image}`}
+							src={`/images/services/${service.img}`}
 							alt={service.title}
 							class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105"
 							loading="lazy"
@@ -55,10 +46,7 @@ const schemaData = {
 						/>
 						<div class="absolute inset-0 bg-linear-to-t from-brand-dark/90 via-brand-dark/30 to-transparent"></div>
 						<div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
-							<div>
-								<h2 class="text-xl md:text-2xl font-display font-bold text-white mb-2">{service.title}</h2>
-								<p class="text-white/60 text-sm line-clamp-2">{service.description}</p>
-							</div>
+							<h2 class="text-xl md:text-2xl font-display font-bold text-white mb-2">{service.title}</h2>
 							<div class="w-10 h-10 rounded-full bg-brand-accent text-brand-dark flex items-center justify-center shrink-0 ml-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300">
 								<IconArrowRight class="w-5 h-5" />
 							</div>
